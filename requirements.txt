@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+google-genai
+scikit-learn
+pillow
+python-multipart
+python-dotenv

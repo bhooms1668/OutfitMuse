@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OutfitMuse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <main>
+    <header>
+      <h1>Outfit<span>Muse</span> </h1>
+      <p class="tagline">Your AI photo-shoot director</p>
+      <p id="conn" class="conn"><i></i><span>Checking backend…</span></p>
+    </header>
+
+    <div class="tabs">
+      <button type="button" class="tab active" data-mode="photo">📷 Upload photo</button>
+      <button type="button" class="tab" data-mode="text">✍️ Describe outfit</button>
+    </div>
+
+    <input type="file" id="file" accept="image/png, image/jpeg" hidden />
+
+    <section id="photo-panel">
+      <div id="dropzone" class="dropzone">
+        <div id="drop-empty">
+          <div class="drop-icon">👗</div>
+          <p class="drop-title">Drop your outfit photo here</p>
+          <p class="drop-sub">or paste an image with Ctrl+V</p>
+          <button type="button" id="browse" class="btn ghost">📁 Browse files</button>
+        </div>
+        <div id="drop-filled" hidden>
+          <img id="preview" alt="Outfit preview" />
+          <button type="button" id="remove" class="remove">✕</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="text-panel" hidden>
+      <textarea id="desc" rows="4" placeholder="e.g. oversized beige trench, black boots, brown tote bag"></textarea>
+    </section>
+
+    <button type="button" id="analyze" class="btn go" disabled>
+      <span class="spinner" hidden></span><span id="analyze-label">✨ Analyze outfit</span>
+    </button>
+    <p id="status"></p>
+
+    <section id="results" class="results" hidden>
+      <article class="card wide c-purple" style="--i:0">
+        <h2> What we see</h2>
+        <p id="description"></p>
+        <div class="meta"><span class="pill" id="vibe"></span><span class="pill" id="season"></span></div>
+      </article>
+      <article class="card c-pink" id="palette-card" style="--i:1">
+        <h2> Palette <small>tap to copy</small></h2>
+        <div id="palette" class="palette"></div>
+      </article>
+      <article class="card c-orange" style="--i:2">
+        <h2> Garments</h2>
+        <div id="garments" class="chips"></div>
+      </article>
+      <article class="card wide c-blue" style="--i:3">
+        <h2> Pose ideas</h2>
+        <div id="poses" class="poses"></div>
+      </article>
+      <article class="card c-green" style="--i:4">
+        <h2> Best settings</h2>
+        <ul id="settings"></ul>
+      </article>
+      <article class="card c-pink" style="--i:5">
+        <h2> Captions <small>tap to copy</small></h2>
+        <ul id="captions" class="captions"></ul>
+      </article>
+      <a id="pinterest" class="btn pin wide" target="_blank" rel="noopener">📌 Find layout inspo on Pinterest</a>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
